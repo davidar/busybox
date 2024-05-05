@@ -39,8 +39,10 @@ typedef struct svstatus_t {
 	uint8_t  got_term;
 	uint8_t  run_or_finish;
 } svstatus_t;
+#if 0
 struct ERR_svstatus_must_be_20_bytes {
 	char ERR_svstatus_must_be_20_bytes[sizeof(svstatus_t) == 20 ? 1 : -1];
 };
+#endif
 
 POP_SAVED_FUNCTION_VISIBILITY

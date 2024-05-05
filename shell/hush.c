@@ -9290,7 +9290,8 @@ static NOINLINE int run_pipe(struct pipe *pi)
 #endif
 			}
 		} else
-		if (ENABLE_FEATURE_SH_NOFORK && NUM_APPLETS > 1) {
+#if ENABLE_FEATURE_SH_NOFORK
+		if (NUM_APPLETS > 1) {
 			int n = find_applet_by_name(argv_expanded[0]);
 			if (n < 0 || !APPLET_IS_NOFORK(n))
 				goto must_fork;
@@ -9315,6 +9316,7 @@ static NOINLINE int run_pipe(struct pipe *pi)
 				rcode = run_nofork_applet(n, argv_expanded);
 			}
 		} else
+#endif
 			goto must_fork;
 
 		restore_redirects(squirrel);
