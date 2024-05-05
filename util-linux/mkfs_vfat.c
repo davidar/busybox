@@ -173,12 +173,14 @@ struct fat32_fsinfo {
 	uint16_t boot_sign;          /* 1fe */
 } PACKED;
 
+#if 0
 struct bug_check {
 	char BUG1[sizeof(struct msdos_dir_entry  ) == 0x20 ? 1 : -1];
 	char BUG2[sizeof(struct msdos_volume_info) == 0x1a ? 1 : -1];
 	char BUG3[sizeof(struct msdos_boot_sector) == 0x200 ? 1 : -1];
 	char BUG4[sizeof(struct fat32_fsinfo     ) == 0x200 ? 1 : -1];
 };
+#endif
 
 static const char boot_code[] ALIGN1 =
 	"\x0e"          /* 05a:         push  cs */

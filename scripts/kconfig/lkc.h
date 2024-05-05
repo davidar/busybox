@@ -35,7 +35,7 @@ extern "C" {
 #define LOCALEDIR "/usr/share/locale"
 
 #define _(text) gettext(text)
-#define N_(text) (text)
+#define N_(text) text
 
 
 #define TF_COMMAND	0x0001

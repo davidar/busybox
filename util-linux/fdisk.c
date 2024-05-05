@@ -2711,6 +2711,7 @@ write_table(void)
 		/* no test on change? the "altered" msg below might be mistaken */
 		sgi_write_table();
 	}
+#if ENABLE_FEATURE_SUN_LABEL
 	else if (LABEL_IS_SUN) {
 		for (i = 0; i < 8; i++) {
 			if (ptes[i].changed) {
@@ -2719,6 +2720,7 @@ write_table(void)
 			}
 		}
 	}
+#endif
 
 	puts("The partition table has been altered.");
 	reread_partition_table(1);

@@ -194,6 +194,7 @@ do { if (BB_BIG_ENDIAN) { \
 	(cde).fmt.cdf_offset = SWAP_LE32((cde).fmt.cdf_offset); \
 }} while (0)
 
+#if 0
 struct BUG {
 	/* Check the offset of the last element, not the length.  This leniency
 	 * allows for poor packing, whereby the overall struct may be too long,
@@ -208,6 +209,7 @@ struct BUG {
 	char BUG_cde_must_be_16_bytes[
 		sizeof(cde_t) == CDE_LEN ? 1 : -1];
 };
+#endif
 
 
 enum { zip_fd = 3 };

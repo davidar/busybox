@@ -312,18 +312,19 @@ int nameif_main(int argc UNUSED_PARAM, char **argv)
 			clist = ch->next;
 		if (ch->next != NULL)
 			ch->next->prev = ch->prev;
-		if (ENABLE_FEATURE_CLEAN_UP)
+#if ENABLE_FEATURE_CLEAN_UP
 			delete_eth_table(ch);
+#endif
 	} /* while */
 
-	if (ENABLE_FEATURE_CLEAN_UP) {
+#if ENABLE_FEATURE_CLEAN_UP
 		ethtable_t *next;
 		for (ch = clist; ch; ch = next) {
 			next = ch->next;
 			delete_eth_table(ch);
 		}
 		config_close(parser);
-	};
+#endif
 
 	return 0;
 }
